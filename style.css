@@ -1,0 +1,152 @@
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: white;
+    text-align: center;
+}
+
+header { background: #111827; padding: 15px; }
+
+#contador {
+    font-size: 42px;
+    font-weight: bold;
+    color: #38bdf8;
+}
+
+/* PARTITURA */
+
+.partituraSection {
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.partituraContainer {
+    position: relative;
+    width: 95%;
+    max-width: 1000px;
+    height: 170px;
+    background: #f8fafc;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.linha {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: black;
+}
+
+.l1 { top: 25px; }
+.l2 { top: 50px; }
+.l3 { top: 75px; }
+.l4 { top: 100px; }
+.l5 { top: 125px; }
+
+#notasContainer {
+    position: relative;
+    height: 100%;
+}
+
+/* NOTAS */
+
+.nota {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: black;
+    border-radius: 50%;
+}
+
+.colcheia::after,
+.seminima::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 35px;
+    background: black;
+    left: 14px;
+    top: -30px;
+}
+
+.colcheia::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    border-radius: 0 100% 0 0;
+    left: 16px;
+    top: -30px;
+}
+
+.minima {
+    background: white;
+    border: 2px solid black;
+}
+
+.nota.ativaNota { background: red; }
+
+.barraCompasso {
+    position: absolute;
+    width: 2px;
+    height: 120px;
+    background: black;
+    top: 20px;
+}
+
+/* BATERIA */
+
+.bateriaArea {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.bateriaContainer {
+    position: relative;
+    width: 90%;
+    max-width: 550px;
+}
+
+#bateriaImg { width: 100%; }
+
+.peca { position: absolute; border-radius: 50%; }
+
+.bumbo { bottom: 8%; left: 40%; width: 20%; height: 20%; }
+.caixa { bottom: 28%; left: 28%; width: 16%; height: 16%; }
+.chimbal { bottom: 33%; left: 3%; width: 18%; height: 18%; }
+.tom1 { top: 36%; left: 36%; width: 12%; height: 12%; }
+.tom2 { top: 36%; left: 55%; width: 12%; height: 12%; }
+.crash { top: 5%; left: 10%; width: 20%; height: 15%; }
+.ride { top: 5%; right: 10%; width: 20%; height: 15%; }
+.surdo { bottom: 15%; right: 25%; width: 18%; height: 18%; }
+
+.ativa { box-shadow: 0 0 25px 8px yellow; }
+
+.ritmos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    padding: 15px;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.start { background: #16a34a; }
+.stop { background: #dc2626; }
+.novo { background: #065f46; margin-top: 15px; }
+
+@media (max-width: 600px) {
+    #contador { font-size: 32px; }
+}

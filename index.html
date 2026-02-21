@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aula de Bateria</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/@tonejs/midi"></script>
+</head>
+<body>
+
+<header>
+    <h1>🥁 Aula de Bateria Interativa</h1>
+</header>
+
+<section class="displayBox">
+    <div id="ritmoNome">Selecione um ritmo</div>
+    <div id="contador">-</div>
+</section>
+
+<section class="partituraSection">
+    <div class="partituraContainer">
+        <div class="linha l1"></div>
+        <div class="linha l2"></div>
+        <div class="linha l3"></div>
+        <div class="linha l4"></div>
+        <div class="linha l5"></div>
+        <div id="notasContainer"></div>
+    </div>
+</section>
+
+<section class="bateriaArea">
+    <div class="bateriaContainer">
+        <img src="assets/bateria.png" id="bateriaImg">
+
+        <div class="peca bumbo" onclick="tocarManual('bumbo')"></div>
+        <div class="peca caixa" onclick="tocarManual('caixa')"></div>
+        <div class="peca chimbal" onclick="tocarManual('chimbal')"></div>
+        <div class="peca tom1" onclick="tocarManual('tom1')"></div>
+        <div class="peca tom2" onclick="tocarManual('tom2')"></div>
+        <div class="peca crash" onclick="tocarManual('crash')"></div>
+        <div class="peca ride" onclick="tocarManual('ride')"></div>
+        <div class="peca surdo" onclick="tocarManual('surdo')"></div>
+    </div>
+</section>
+
+<section class="ritmos">
+    <button onclick="selecionarRitmo('popRock')">Pop Rock</button>
+    <button onclick="selecionarRitmo('rock')">Rock</button>
+    <button onclick="selecionarRitmo('samba')">Samba</button>
+    <button onclick="selecionarRitmo('forro')">Forró</button>
+    <button onclick="selecionarRitmo('valsa')">Valsa</button>
+    <button onclick="selecionarRitmo('bolero')">Bolero</button>
+    <button onclick="selecionarRitmo('funk')">Funk</button>
+    <button onclick="selecionarRitmo('sertanejo')">Sertanejo</button>
+</section>
+
+<section class="controle">
+    <div class="bpmBox">
+        <label>BPM: <span id="bpmValor">90</span></label>
+        <input type="range" id="bpmControl" min="60" max="160" value="90">
+    </div>
+
+    <div class="acoes">
+        <button class="start" onclick="iniciar()">▶ Iniciar</button>
+        <button class="stop" onclick="parar()">■ Parar</button>
+    </div>
+
+    <input type="file" id="midiInput" accept=".mid,.midi">
+
+    <button class="novo" onclick="mostrarInfo()">+ Adicionar Novo Ritmo</button>
+
+    <div id="infoRitmo" class="infoBox">
+        Coloque arquivos de áudio na pasta <b>assets/</b>
+    </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
